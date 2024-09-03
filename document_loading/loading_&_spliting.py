@@ -1,6 +1,7 @@
 from langchain.document_loaders import PyPDFLoader
 
 from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain.text_splitter import CharacterTextSplitter
 
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.vectorstores import Chroma
@@ -20,10 +21,7 @@ embeddings = OpenAIEmbeddings()
 
 
 # Create a vector store using Chroma
-vectordb = Chroma.from_documents(
-    documents=pages,
-    embeddings= ,
-    persist_directory="../vector_db")
+vectordb = Chroma.from_documents(texts, embeddings, persist_directory="../vector_db")
 
 # Persist the vector store
 vectordb.persist()
