@@ -21,7 +21,7 @@ embeddings = OpenAIEmbeddings()
 
 
 # Create a vector store using Chroma
-vectordb = Chroma.from_documents(texts, embeddings, persist_directory="../vector_db")
+vectordb = Chroma.from_documents(docs, embeddings, persist_directory="../vector_db")
 
 # Persist the vector store
 vectordb.persist()
